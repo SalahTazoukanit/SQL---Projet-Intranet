@@ -1,0 +1,100 @@
+body{
+    margin: 0;
+}
+header{
+    display: flex;
+    justify-content:space-between;
+}
+
+/*css page login*/
+.logoContainer img{
+    width: 300px;
+}
+.secondContainer{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+   margin-right: 155px;
+}
+.secondContainer img{
+    width: 50px;
+}
+.centralContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+    background-image: url(images/photo3.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 415px;
+}
+form{
+    background-color:rgba(255, 255, 255, 0.34);
+    box-shadow: rgba(108, 108, 108, 0.411) 0px 2px 8px 0px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    text-align: left;
+    padding: 55px;
+}
+.fieldContainer{
+    display: flex;
+    flex-direction: column;
+}
+input{
+    width:400px ;
+    height: 25px;
+}
+button{
+    width:100px;
+    border-radius: 10px;
+    height: 25px;
+    color: white;
+    border: none;
+    background-color: orange;
+}
+a{
+    text-decoration: none;
+}
+.erreur{
+    color: red;
+}
+
+/*css page admin :*/
+.containerAdminPage{
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    margin-top: 15px;
+}
+.dashboard{
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position:static;
+    top: 0;
+}
+.voyageInfo{
+    display: flex;
+    gap: 1em;
+    margin-top: 50px;
+    align-items: center;
+}
+.voyageInfo img{
+    width: 400px;
+    height: 200px;
+}
+
+/* .travelAddContainer{
+    display: flex;
+    flex-direction: column;
+}
+.logoutContainer{
+    display: flex;
+    flex-direction: column;
+} */
