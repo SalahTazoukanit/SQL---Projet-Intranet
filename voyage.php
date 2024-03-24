@@ -31,7 +31,7 @@ class Voyage {
         $db->deconnectionBdd();
     }
 
-    public function getAllVoyages($id_categorie,$id_formule,$lieu, $description ,$hebergement,$image,$date_debut,$date_fin,$tarif){
+    public function getAllVoyages(){
 
         $db = new BDD();
         $db->connectionBdd();
@@ -45,30 +45,27 @@ class Voyage {
         return $voyages;
     }
 
-    public function removeVoyage($id_categorie,$id_formule,$lieu, $description ,$hebergement,$image,$date_debut,$date_fin,$tarif){
+    public function removeVoyage($id_voyage){
 
         $db = new BDD();
         $db->connectionBdd();
 
-        $std = $db->connection->prepare("DELETE FROM voyage WHERE id_voyage=1");
+        $std = $db->connection->prepare("DELETE FROM voyage WHERE id_voyage = $id_voyage");
         $std->execute();
 
         $db->deconnectionBdd();
     }
 
-    public function editVoyage($id_categorie,$id_formule,$lieu, $description ,$hebergement,$image,$date_debut,$date_fin,$tarif,$id_voyage){
+    public function editVoyage($editId,$id_categorie,$id_formule,$lieu, $description ,$hebergement,$image,$date_debut,$date_fin,$tarif){
 
         $db = new BDD();
         $db->connectionBdd();
 
-        $std = $db->connection->query("UPDATE voyage SET `id_categorie`= $id_categorie ,`id_formule`= $id_formule ,`lieu`= '$lieu',`description`= '$description',`hebergement`= $hebergement ,`image`= '$image' ,`date_debut`= $date_debut ,`date_fin`= $date_fin ,`tarif`='$tarif' WHERE id_voyage = $id_voyage");
-
-        // $std->execute(array("baubau.png", 75));
+        $std = $db->connection->query("UPDATE `voyage` SET `id_voyage`= '$editId', `id_categorie`= '$id_categorie' ,`id_formule`= '$id_formule' ,`lieu`= '$lieu',`description`= '$description',`hebergement`= '$hebergement' ,`image`= '$image' ,`date_debut`= '$date_debut' ,`date_fin`= '$date_fin' ,`tarif`='$tarif' WHERE `id_voyage`= '$editId'");
 
         $db->deconnectionBdd();
     }
 
-    // UPDATE `voyage` SET `id_categorie`=2,`id_formule`=2,`lieu`= 'casablanca',`description`= 'blabla',`hebergement`= 3 ,`image`= 'miao' ,`date_debut`='[value-8]',`date_fin`='[value-9]',`tarif`='99' WHERE id_voyage = 2;
 }
 
 

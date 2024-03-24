@@ -1,5 +1,6 @@
 <?php
-    
+    $id_voyage = $voyage["id_voyage"];
+
     $allVoyages =
 
     '<div class="voyageInfo">
@@ -8,10 +9,10 @@
             <h3>'.$voyage['lieu'].'</h3>
             <p>'.$voyage["description"].'</p>
             
-        </div>  
+        </div>   
     </div> 
     <div class="buttons">
-        <a href="formulaireAddEdit.php"><button id="editVoyage" name="edit">Modifier</button></a>
-        <button id="removeVoyage" name="remove">Supprimer</button>
+        <a href="editFormulaire.php?updateId='.$id_voyage.'"><button id="editVoyage" name="editBtn">Modifier</button></a>
+        <a href="verifRemove.php?removedId='.$id_voyage.'"><button id="removeBtn" name="removeBtn">Supprimer</button></a>
     </div>' ;
 ?>

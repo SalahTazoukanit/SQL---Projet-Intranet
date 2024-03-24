@@ -12,11 +12,11 @@
     <?php
     include "header.php"
     ?>
-    <form  class="formulaireAddEdit" action="verifAddEdit.php" method="POST">
+    <form  class="formulaireAddEdit" action="verifAdd.php" method="POST">
     <div class="borderFormAdd">    
         <div class="colonneUn">
             <select name="selectCategorie" id="selectCategorie">
-                <option value="mer">Mer</option>
+                <option name="mer" value="mer">Mer</option>
                 <option value="montagne">Montagne</option>
                 <option value="campagne">Campagne</option>
             </select>
