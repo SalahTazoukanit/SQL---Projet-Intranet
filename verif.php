@@ -33,17 +33,22 @@ if($resultUser && !empty($resultUser)){
             $erreur = "Impossible effectuer l'acces , vous n'êtes pas un administrateur !";
 
         }
-        else {
+        else if(empty($inputPassword) || empty($inputUsername)){
 
-            $erreur = "Impossible effectuer l'access !";
+            $erreur = "Veuillez remplir le champ manquant !";
    
-        } 
+        }else if($user["id_role"] === 1 || $user["id_role"] === 2 && $user["password"] !== $inputPassword ){
+            $erreur = "Mot de pass incorrecte , veuillez la reinserer !";
+        }
+        else if($user["id_role"] !== 1 && $user["id_role"] !== 1) {
+            $erreur = "compte inexistant !";
+        }
 
     }
 }
-else{
-        $erreur = "Veuillez remplir tous les champs !";
-    }
+// else if(empty($inputPassword) || empty($inputUsername)){
+//         $erreur = "Veuillez remplir le champ manquant !";
+//     }
     
 $db->deconnectionBdd();
 

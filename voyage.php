@@ -15,19 +15,37 @@ class Voyage {
     protected $date_fin ;
     protected $tarif ;
 
-    public function addVoyage(){
+    public function addVoyage($id_categorie,$id_formule,$lieu, $description ,$hebergement,$image,$date_debut,$date_fin,$tarif){
         //creation d'une istance ;
         $db = new BDD();
+
         //connection à la bdd ;
         $db->connectionBdd();
+
         //ajout des valeurs dans la table voyage ;
         //this->connexion de db ;
-        $std = $db->connection->query("INSERT INTO voyage (id_categorie,id_formule,lieu,description,hebergement,image,date_debut,date_fin,tarif) VALUES (1,2,'paris','blabla','blabla','blabla.png','2024-06-12','2024-06-12',25)");
-        $std->execute(); 
+        $std = $db->connection->query("INSERT INTO voyage (id_categorie,id_formule,lieu,description,hebergement,image,date_debut,date_fin,tarif) VALUES ('$id_categorie' ,'$id_formule' ,'$lieu',' $description' ,'$hebergement','$image','$date_debut','$date_fin','$tarif')");
+        // $std->execute(); 
+
         //deconnexion de la base de donnée ;
         $db->deconnectionBdd();
     }
-    public function removeVoyage(){
+
+    public function getAllVoyages($id_categorie,$id_formule,$lieu, $description ,$hebergement,$image,$date_debut,$date_fin,$tarif){
+
+        $db = new BDD();
+        $db->connectionBdd();
+
+        $std = $db->connection->prepare("SELECT * FROM voyage");
+        $std->execute();
+        $voyages = $std->fetchAll();
+
+        $db->deconnectionBdd();
+
+        return $voyages;
+    }
+
+    public function removeVoyage($id_categorie,$id_formule,$lieu, $description ,$hebergement,$image,$date_debut,$date_fin,$tarif){
 
         $db = new BDD();
         $db->connectionBdd();
@@ -37,21 +55,22 @@ class Voyage {
 
         $db->deconnectionBdd();
     }
-    public function editVoyage(){
+
+    public function editVoyage($id_categorie,$id_formule,$lieu, $description ,$hebergement,$image,$date_debut,$date_fin,$tarif,$id_voyage){
 
         $db = new BDD();
         $db->connectionBdd();
 
-        $std = $db->connection->prepare("UPDATE voyage SET  image =? , tarif =? WHERE id_voyage = 2");
-        $std->execute(array("baubau.png", 75));
+        $std = $db->connection->query("UPDATE voyage SET `id_categorie`= $id_categorie ,`id_formule`= $id_formule ,`lieu`= '$lieu',`description`= '$description',`hebergement`= $hebergement ,`image`= '$image' ,`date_debut`= $date_debut ,`date_fin`= $date_fin ,`tarif`='$tarif' WHERE id_voyage = $id_voyage");
+
+        // $std->execute(array("baubau.png", 75));
 
         $db->deconnectionBdd();
     }
 
-
+    // UPDATE `voyage` SET `id_categorie`=2,`id_formule`=2,`lieu`= 'casablanca',`description`= 'blabla',`hebergement`= 3 ,`image`= 'miao' ,`date_debut`='[value-8]',`date_fin`='[value-9]',`tarif`='99' WHERE id_voyage = 2;
 }
-$voy = new Voyage();
-$voy->editVoyage();
+
 
 
 ?>

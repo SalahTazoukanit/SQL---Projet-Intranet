@@ -16,7 +16,7 @@ if (isset($_POST["loginButton"])) {
 <body>
 
     <?php
-         include "header.php" ;   
+         include "header.php" ; 
     ?>
     <div class="centralContainer">
         <form action="" method="POST">
@@ -24,6 +24,7 @@ if (isset($_POST["loginButton"])) {
             <div class="fieldContainer"><label for=""><strong>Password</strong></label><input name="inputPassword" type="password"></div>
             <?php  
                 if (isset($erreur)) {
+                    // header("Location : index.phph");
                     echo '<p class="erreur">'.$erreur.'</p>' ;
                 }
             ?>

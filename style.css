@@ -57,8 +57,14 @@ button{
     border: none;
     background-color: orange;
 }
+button:hover{
+    opacity: 0.5;
+}
 a{
     text-decoration: none;
+}
+a:hover{
+    opacity: 0.5;
 }
 .erreur{
     color: red;
@@ -68,6 +74,8 @@ a{
 .containerAdminPage{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
     gap: 2em;
     margin-top: 15px;
 }
@@ -75,6 +83,7 @@ a{
     margin-left: 15px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: space-between;
     position:static;
     top: 0;
@@ -82,12 +91,45 @@ a{
 .voyageInfo{
     display: flex;
     gap: 1em;
-    margin-top: 50px;
+    /* margin-top: 50px; */
     align-items: center;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    border-radius: 10px;
 }
 .voyageInfo img{
-    width: 400px;
-    height: 200px;
+    width: 700px;
+    height:200px;
+    border-radius: 5px;
+}
+.infos{
+    width: 100%;
+}
+.editVoyage{
+
+}
+/* .line{
+    border: solid;
+} */
+.containerVoyages{
+    display: flex;
+    flex-direction:column ;
+    max-height: 550px;
+    max-width: 60%;
+    overflow-y: scroll;
+    gap: 1em;
+}
+.containerVoyages::-webkit-scrollbar {
+    display: none;
+}
+.buttonAdminPage{
+    width: 200px;
+    background-color: white;
+    color: black;
+}
+.buttons button{
+    width: 200px;
+    background-color: white;
+    color: black;
 }
 
 /* .travelAddContainer{
@@ -98,3 +140,69 @@ a{
     display: flex;
     flex-direction: column;
 } */
+
+/*css du formulaire add et edit*/
+.formulaireAddEdit{
+    display: flex;
+    flex-direction: row;
+    box-shadow: none;
+    justify-content: center;
+    gap: 5em;
+}
+.colonneUn{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.colonneUn input,select{
+    width: 200px;
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+}
+.colonneDeux{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+.colonneDeux input,textarea{
+    width: 400px;
+    border-radius: 5px;
+    border: none;
+}
+.colonneDeux input{
+    height: 100px;
+}
+.colonneDeux button{
+    height: 25px;
+    width: 200px;
+    background-color: white;
+    color: black;
+}
+.colonneDeux textarea{
+    height: 200px;
+}
+.borderFormAdd{
+    background-color: rgba(120, 120, 120, 0.159);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    padding: 30px;
+}
+.exit{
+    margin-bottom: 50%;
+}
+.message{
+    margin: 10px auto;
+    padding: 5px;
+    border-radius: 10px;
+    color: rgba(8, 148, 50, 0.899);
+    background: rgba(10, 191, 201, 0.49);
+    border: 1px solid rgba(0, 0, 0, 0);
+    width: 20%;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
