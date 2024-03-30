@@ -1,7 +1,6 @@
 <?php
 
-include "bdd.php";
-
+include_once "bdd.php";
 
 class Voyage {
 
@@ -24,7 +23,7 @@ class Voyage {
 
         //ajout des valeurs dans la table voyage ;
         //this->connexion de db ;
-        $std = $db->connection->query("INSERT INTO voyage (id_categorie,id_formule,lieu,description,hebergement,image,date_debut,date_fin,tarif) VALUES ('$id_categorie' ,'$id_formule' ,'$lieu',' $description' ,'$hebergement','$image','$date_debut','$date_fin','$tarif')");
+        $std = $db->connection->query("INSERT INTO voyage (id_categorie,id_formule,lieu,description,hebergement,image,date_debut,date_fin,tarif) VALUES ('$id_categorie' ,'$id_formule' ,'$lieu', '$description' ,'$hebergement','$image','$date_debut','$date_fin','$tarif')");
         // $std->execute(); 
 
         //deconnexion de la base de donnée ;
@@ -66,6 +65,50 @@ class Voyage {
         $db->deconnectionBdd();
     }
 
+    public function getVoyageFromId($editId){
+
+        $db = new BDD();
+        $db->connectionBdd();
+
+        // $std = $db->connection->query("SELECT * FROM  `voyage` INNER JOIN `categorie` ON voyage.id_categorie = categorie.id_categorie WHERE `id_voyage` = '$editId'");
+        $std = $db->connection->query("SELECT * FROM  `voyage` WHERE `id_voyage` = '$editId'");
+        
+        $voyage = $std->fetchAll(PDO::FETCH_ASSOC);
+
+        $db->deconnectionBdd();
+
+        return $voyage ;
+    }
+
+    public function getInfosFromLieu($searchBar){
+        
+        $bd = new BDD();
+        $bd->connectionBdd();
+
+        $std = $bd->connection->query("SELECT * FROM  `voyage` WHERE `lieu` like '%$searchBar%'");
+        
+        $voyageInfos = $std->fetchAll(PDO::FETCH_ASSOC);
+        
+        $bd->deconnectionBdd();
+        
+        return $voyageInfos ;
+
+    }
+    public function getInfosFromCategorie($filterCat){
+        
+        $bd = new BDD();
+        $bd->connectionBdd();
+
+        $std = $bd->connection->query("SELECT * FROM  `voyage` WHERE `id_categorie` = '$filterCat'");
+        
+        $voyageInfos = $std->fetchAll(PDO::FETCH_ASSOC);
+        
+        $bd->deconnectionBdd();
+        
+        return $voyageInfos ;
+
+    }
+    
 }
 
 

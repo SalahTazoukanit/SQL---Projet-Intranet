@@ -2,7 +2,7 @@
 //demmarage de la session ;
 session_start();
 if (isset($_POST["loginButton"])) {
-            include "verif.php";
+            include "controlers/verif.php";
          }
 ?>
 <!DOCTYPE html>
@@ -10,21 +10,23 @@ if (isset($_POST["loginButton"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/style.css">
     <title>Admin Login Page</title>
 </head>
 <body>
-
-    <?php
-         include "header.php" ; 
-    ?>
+    <header>
+        <div class="logoContainer"><img src="assets/images/logoprojet.jpg" alt="logo JCPVacances"></div>
+        <div class="secondContainer">
+            <div><a href="login.php"><img src="assets/images/logoAdmin.png" alt="logo utilisateur"></a></div>
+            <div><p>Administrateur</p></div>
+        </div>
+    </header>
     <div class="centralContainer">
         <form action="" method="POST">
             <div class="fieldContainer"><label for=""><strong>Username</strong></label><input name="inputUsername" type="text"></div>
             <div class="fieldContainer"><label for=""><strong>Password</strong></label><input name="inputPassword" type="password"></div>
             <?php  
                 if (isset($erreur)) {
-                    // header("Location : index.phph");
                     echo '<p class="erreur">'.$erreur.'</p>' ;
                 }
             ?>

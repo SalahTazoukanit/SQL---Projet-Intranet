@@ -5,7 +5,19 @@ header{
     display: flex;
     justify-content:space-between;
 }
-
+#filter{
+    border: none;
+}
+.search{
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    align-items: center;
+    border-radius: 5px;
+}
+.search input{
+    width: 200px;
+    
+}
 /*css page login*/
 .logoContainer img{
     width: 300px;
@@ -14,7 +26,7 @@ header{
     display: flex;
     align-items: center;
     gap: 1em;
-   margin-right: 155px;
+    margin-right: 155px;
 }
 .secondContainer img{
     width: 50px;
@@ -103,13 +115,18 @@ a:hover{
 }
 .infos{
     width: 100%;
+    max-height: 200px;
+    overflow-y: scroll;
 }
-.editVoyage{
-
+.infos::-webkit-scrollbar{
+    display: none;
 }
-/* .line{
-    border: solid;
-} */
+.travelAddContainer h2 {
+ display: flex;
+ justify-content: flex-end;
+ justify-content: center;
+ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
 .containerVoyages{
     display: flex;
     flex-direction:column ;
@@ -196,4 +213,10 @@ a:hover{
 .buttons{
     display: flex;
     justify-content: center;
+}
+.classBar form{
+    box-shadow: none;
+}
+.classBar input{
+    width: 200px;
 }

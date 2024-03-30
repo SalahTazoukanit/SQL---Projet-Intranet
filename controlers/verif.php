@@ -6,7 +6,7 @@ $password_regex = "/^(?=.*?[a-z])(?=.*?[0-9]).{4,}$/" ;
 $erreur ="";
 
 //incluse classe bdd ;
-include "bdd.php";
+include "./classes/bdd.php";
 //connection à la base de donnée ;
 $db = new BDD();
 $db->connectionBdd();
@@ -20,11 +20,9 @@ $resultUser = $response->fetchAll();
 if($resultUser && !empty($resultUser)){
     foreach ($resultUser as $user) {
 
-    
-
         if ($user["id_role"] === 1 && $user["password"] === $inputPassword && preg_match($password_regex, $inputPassword) ) {
             //rediger vers la page administrateur ;            
-            header("Location: adminpage.php");
+            header("Location: ./templates/adminpage.php");
             //variable de type sessions ;
             $_SESSION["username"] = $inputUsername ;
         }
@@ -38,17 +36,30 @@ if($resultUser && !empty($resultUser)){
             $erreur = "Veuillez remplir le champ manquant !";
    
         }else if($user["id_role"] === 1 || $user["id_role"] === 2 && $user["password"] !== $inputPassword ){
+
             $erreur = "Mot de pass incorrecte , veuillez la reinserer !";
         }
         else if($user["id_role"] !== 1 && $user["id_role"] !== 1) {
-            $erreur = "compte inexistant !";
-        }
 
+            $erreur = "compte inexistant !";
+
+        }
+    
     }
 }
-// else if(empty($inputPassword) || empty($inputUsername)){
-//         $erreur = "Veuillez remplir le champ manquant !";
-//     }
+
+if (!isset($user["password"]) && !isset($user["id_role"])) {
+        
+    $erreur = " Username non reconnu!";
+        
+}
+
+if(empty($inputPassword) && empty($inputUsername)){
+
+    $erreur = "Veuillez remplir les champs manquantes !";
+
+}
+
     
 $db->deconnectionBdd();
 

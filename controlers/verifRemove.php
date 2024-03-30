@@ -1,6 +1,6 @@
 <?php
 
-include "voyage.php";
+include "../classes/voyage.php";
 
 //suppression d'un voyage ;
     $removeId = isset($_GET["removedId"]);
@@ -10,7 +10,7 @@ include "voyage.php";
 
         $voyageRemoved = new Voyage;
         $voyageRemoved->removeVoyage($id_voyage) ;
-        header("Location:adminpage.php");
+        header("Location:../templates/adminpage.php");
         $_SESSION["removedId"] = "Voyage supprimé avec succes !";
         
     }
