@@ -7,7 +7,7 @@ filter.addEventListener("input", async () =>{
         const filtered = document.querySelector("#filter").value;
 
         console.log(filtered);
-        let response = await fetch("../searchbarVerif.php?filter="+filtered);
+        let response = await fetch("../controlers/filtersVerif.php?filter="+filtered);
         console.log(response);
 
         let data = await response.text();
@@ -24,7 +24,7 @@ filterCat.addEventListener("change", async ()=>{
         const filteredCat = document.querySelector("#filterCat").value ;
         console.log(filteredCat);
 
-        let response = await fetch("../searchbarVerif.php?filterCat="+filteredCat);
+        let response = await fetch("../controlers/filtersVerif.php?filterCat="+filteredCat);
         console.log(response);
 
         let data = await response.text();

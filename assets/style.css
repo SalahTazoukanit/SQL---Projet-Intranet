@@ -22,15 +22,6 @@ header{
 .logoContainer img{
     width: 300px;
 }
-.secondContainer{
-    display: flex;
-    align-items: center;
-    gap: 1em;
-    margin-right: 155px;
-}
-.secondContainer img{
-    width: 50px;
-}
 .centralContainer{
     display: flex;
     justify-content: center;
@@ -142,6 +133,7 @@ a:hover{
     width: 200px;
     background-color: white;
     color: black;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .buttons button{
     width: 200px;
@@ -219,4 +211,5 @@ a:hover{
 }
 .classBar input{
     width: 200px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

@@ -35,7 +35,7 @@ if (!isset($_SESSION["username"])) {
             <div class="travelAddContainer">
                 <h2>DASHBOARD</h2>
                 <div><a href="formulaireAdd.php"><button class="buttonAdminPage"><i class="fa-solid fa-plus">Ajouter </i></button></a></div><br><br>
-                <div class="search"><input placeholder ="inserer le voyage desideré" id="filter" name="filter" type="search"><i class="fa-solid fa-magnifying-glass"></i></div><br><br>
+                <div class="search"><input placeholder ="inserer un voyage" id="filter" name="filter" type="search"><i class="fa-solid fa-magnifying-glass"></i></div><br><br>
                 <select name="filterCat" id="filterCat">
                     <?php 
 
@@ -52,30 +52,20 @@ if (!isset($_SESSION["username"])) {
 
                     ?>
                 </select><br><br>
-                <select name="" id="">
-                    <?php 
-                        include "../classes/formule.php";
-                        $formules = new Formule();
-
-                        foreach ($formules-> getAllFormule() as $formule) {
-                            echo '<option value="'.$formule["id_formule"].'" >'.$formule["name"].'</option>' ;
-                        }               
-                    ?>
-                </select>   
             </div>
             <div class="logoutContainer">
                 <div class="line"></div>
-                <a href="../deconnexion.php"><i class="fa-solid fa-right-from-bracket" style="color: black;"> Deconnexion </i></a>
+                <a href="../controlers/deconnexion.php"><i class="fa-solid fa-right-from-bracket" style="color: black;"> Deconnexion </i></a>
             </div>
             
         </div>
         <div class="containerVoyages">
             <?php 
-                include "../searchbarVerif.php";
+                include "../controlers/filtersVerif.php";
             ?>
         </div>
         <div></div>
     </div>
-    <script src="../script.js"></script>
+    <script src="../script/script.js"></script>
 </body>
 </html>
